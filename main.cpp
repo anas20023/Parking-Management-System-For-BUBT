@@ -10,7 +10,6 @@
 #include "sqlite3.h"
 
 using namespace std;
-
 /// Database Files ///
 // Miel
 
@@ -170,7 +169,7 @@ void Entry()
 
     cout << "\t\tEnter Student ID:";
     cin >> ID;
-    cin.ignore();
+    cin.ignore(); // buffer char ignore korlm
     // cout<<"\t\t"<<Check_DublicateID(ID)<<endl;
     if (Check_DublicateID(ID) == 0)
     {
@@ -725,7 +724,7 @@ void Auth()
         {
             proctor_side();
         }
-        else if( cnt==-1)
+        else if(cnt==-1)
         {
             cout<<"\t\t\t Database Error\n";
             Sleep(3000);
@@ -877,12 +876,12 @@ void user_side_show()
     {
         user_side();
     }
-    else if( cnt==-1)
+    else if(cnt==-1)
     {
         cout<<"\t\t\t Database Error\n";
         Sleep(3000);
     }
-    else
+    else if(cnt==0)
     {
         wrong_auth();
     }
@@ -975,7 +974,7 @@ void show_current()
         sqlite3_finalize(stmt);
     }
     cout << "\n\n\n\n\t\t\t\t\t\tCycle\n\n\n";
-    const char *sql22 = "SELECT * FROM cyc";
+    const char *sql22 = "SELECT * FROM cycle";
     res = sqlite3_prepare_v2(db_obj, sql22, -1, &stmt, NULL);
     if (res != SQLITE_OK)
     {
@@ -988,7 +987,7 @@ void show_current()
 
         while ((res = sqlite3_step(stmt)) == SQLITE_ROW)
         {
-            cout << "\t\t| " << setw(10) << left << sqlite3_column_int64(stmt, 1) << " | " << setw(10) << left << sqlite3_column_int64(stmt, 2) << " |" << endl;
+            cout << "\t\t| " << setw(10) << left << sqlite3_column_int64(stmt, 0) << " | " << setw(10) << left << sqlite3_column_int64(stmt, 1) << " |" << endl;
         }
 
 
