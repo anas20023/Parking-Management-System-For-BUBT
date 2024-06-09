@@ -12,7 +12,6 @@
 using namespace std;
 /// Database Files ///
 // Miel
-
 sqlite3 *db_obj;
 sqlite3_stmt *stmt;
 int res;
@@ -829,8 +828,8 @@ void proctor_side()
     cout << "\n\t\t\t\tBangladesh University of Business and Technology\n";
     cout << "\t\t\t\t\t   Parking Management System\n\n\n\n";
     cout << "\t\t\t\t\t   Proctorial Dashboard\n\n\n\n";
-    cout << "\t\t 1. View Current Parking\n";
-    cout << "\t\t 2. View Log\n";
+    cout << "\t\t 1. View Current Log\n";
+    cout << "\t\t 2. View All Log\n";
     cout << "\t\t >";
     int tlt;
     cin>>tlt;
