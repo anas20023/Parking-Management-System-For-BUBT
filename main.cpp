@@ -57,6 +57,7 @@ void proctor_side();
 void wrong_auth();
 void show_all();
 void show_current();
+void wrong_auth_3();
 /// Main Function Starts Here.......///
 
 int optn;
@@ -842,6 +843,11 @@ void proctor_side()
     {
         show_all();
     }
+    else
+    {
+        wrong_auth_3();
+        Sleep(2000);
+    }
 }
 void wrong_auth()
 {
@@ -999,4 +1005,14 @@ void show_current()
         sqlite3_finalize(stmt);
     }
     Sleep(10000);
+}
+void wrong_auth_3()
+{
+    system("cls");
+    cout << "\n\t\t\t\tBangladesh University of Business and Technology\n";
+    cout << "\t\t\t\t\t   Parking Management System\n\n\n\n";
+    cout << "\t\t\t\t\t   Administration Dashboard\n\n\n\n";
+    cout << "\t\t Wrong Username or Password !!";
+    Sleep(3000);
+    Auth();
 }
